@@ -1,0 +1,32 @@
+{
+  "name": "mo",
+  "version": "1.0.0",
+  "description": "discord system bot for Mo",
+  "keywords": [
+    "system",
+    "bot",
+    "discord.js"
+  ],
+  "homepage": "https://github.com/M-ahde/Mo-Bot#readme",
+  
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/M-ahde/Mo-Bot.git"
+  },
+  "license": "ISC",
+  "author": "M-ahde",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@discordjs/rest": "^2.6.0",
+    "cron": "^4.4.0",
+    "discord.js": "^14.25.1",
+    "dotenv": "^17.2.3",
+    "quick.db": "^9.1.7",
+    "write-file-atomic": "^7.0.0"
+  },
+  "devDependencies": {}
+}
