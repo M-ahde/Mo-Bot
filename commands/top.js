@@ -11,13 +11,11 @@ export default {
         const db = _client_.db;
         const config = _client_.config;
 
-        // تحقق من صلاحية الأداري
         const isAdmin = interaction.member.roles.cache.some(role => config.ticket.allowedRoles.includes(role.id));
         if (!isAdmin) {
             return interaction.reply({ content: "❌ أنت غير مخوّل لاستخدام هذا الأمر.", ephemeral: true });
         }
 
-        // جلب كل البيانات من DB
         let allData;
         try {
             allData = (await db.all()).filter(entry => entry.id.startsWith("points_"));
@@ -30,7 +28,6 @@ export default {
             return interaction.reply({ content: "لا توجد نقاط مسجلة حالياً.", ephemeral: true });
         }
 
-        // ترتيب تنازلي وأخذ أعلى 10
         const sorted = allData.sort((a, b) => b.data - a.data).slice(0, 10);
 
         let description = "";
