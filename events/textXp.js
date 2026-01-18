@@ -10,6 +10,12 @@ export default {
         if (message.author.bot) return;
         if (message.content.length > config.points.maxMessageLength) return;
 
+        const hasAllowedRole = member.roles.cache.some(role =>
+            config.ticket.allowedRoles.includes(role.id)
+        );
+
+        if (!hasAllowedRole) return;
+        
         const userId = message.author.id;
         const now = Date.now();
 
