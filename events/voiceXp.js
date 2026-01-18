@@ -15,7 +15,11 @@ export default {
           .forEach((ch) => {
             ch.members.forEach(async (member) => {
               if (member.user.bot) return;
-
+          
+              const hasAllowedRole = member.roles.cache.some(role =>
+                config.ticket.allowedRoles.includes(role.id)
+              );
+              if (!hasAllowedRole) return;
               const userId = member.id;
               const now = Date.now();
               const lastTime = voiceTimers.get(userId) || 0;
